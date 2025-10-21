@@ -11,8 +11,9 @@ dp = Dispatcher()
 
 @dp.message(Command("get_code"))
 async def start_cmd(msg: types.Message):
-  code = requests.post("https://quizizz-answer.vercel.app/point", headers={"Content-Type":"application/json"}, json={"password":"Quizizz_Admin"}).json["code"]
-  await msg.answer(code)
+  code = requests.post("https://quizizz-answer.vercel.app/point", headers={"Content-Type":"application/json"}, json={"password":"Quizizz_Admin"}).json
+  print(code)
+  await msg.answer(str(code))
 
 async def main():
   await dp.start_polling(bot)
