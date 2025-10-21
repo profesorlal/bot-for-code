@@ -11,7 +11,7 @@ dp = Dispatcher()
 
 @dp.message(Command("get_code"))
 async def start_cmd(msg: types.Message):
-  code = requests.post("https://quizizz-answer.vercel.app/point", headers={"Content-Type":"application/json"}, json={"password":"Quizizz_Admin"}).json
+  code = requests.post("https://quizizz-answer.vercel.app/point", headers={"Content-Type":"application/json"}, json={"password":"Quizizz_Admin"}).text
   await msg.answer(code)
 
 async def main():
