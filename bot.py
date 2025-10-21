@@ -1,0 +1,23 @@
+import requests
+from aiogram import Bot, Dispatcher, types
+from aiogram.filters import Command
+import asyncio
+import os
+
+TOKEN = os.getenv("7950628886:AAGbyluSDeTwHY9y1ELkpi9RYRBDDGqlIEE")
+
+bot = Bot(token=TOKEN)
+
+dp = Dispatcher()
+
+@dp.message(Command("get_code"))
+async def start_cmd(msg: types.Message):
+  code = await requests.post("https://quizizz-answer.vercel.app/point", headers={"Content-Type":"application/json"}, body={"password":"Quizizz_Admin"}).text
+  await msg.answer(code)
+
+async def main():
+  await dp.start_polling(bot)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
