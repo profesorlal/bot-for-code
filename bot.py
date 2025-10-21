@@ -2,9 +2,8 @@ import requests
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 import asyncio
-import os
 
-TOKEN = os.getenv("7950628886:AAGbyluSDeTwHY9y1ELkpi9RYRBDDGqlIEE")
+TOKEN = "7950628886:AAGbyluSDeTwHY9y1ELkpi9RYRBDDGqlIEE"
 
 bot = Bot(token=TOKEN)
 
